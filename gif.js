@@ -1,4 +1,5 @@
 // my Api 
+const gifApi = 'cryDd2N06MslIPCYgQc7yBrOH3WucmCo'
 
 //1- creat url with api 
 //2- fetch data and found array of gighes linkes and 
