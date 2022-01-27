@@ -17,34 +17,36 @@ const ul = document.createElement('ul')
 main.appendChild(ul)
 
 // get data from json link 
-const getGif = function () {
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${input.value}&api_key=${gifApi}&limit=${numberOfGif.value}`)
-        .then(request => request.json())
-        .then(data => {
-            sendData(data)
-            console.log(data);
-        })
+
+const getGif = async function () {
+    try {
+        const response = await fetch(`http://api.giphy.com/v1/gifs/search?q=${input.value}&api_key=${gifApi}&limit=${numberOfGif.value}`)
+        const data = await response.json()
+        sendData(data)
+        console.log(data);
+    } catch (err) { throw err }
 }
 
 // send data to elements in html 
-function sendData(gif) {
-    const gifsArray = gif.data
+const sendData = async function (gif) {
     ul.innerHTML = ''
-    gifsArray.forEach(item => {
+    await gif.data.forEach(item => {
         const li = document.createElement('li')
         const a = document.createElement('a')
-
         ul.appendChild(li)
         const img = new Image(300, 300)
         li.appendChild(a)
-         a.appendChild(img)
+        a.appendChild(img)
         img.src = item.images.original.url
-        a.href=item.url
-         a.target="_blank"
+        a.href = item.url
+        a.target = "_blank"
     })
 }
 
-button.addEventListener('click', () => {
-    getGif()
-    sendData()
+button.addEventListener('click', async () => {
+    try {
+        await getGif()
+        await sendData()
+    } catch (err) { throw err }
+
 })
