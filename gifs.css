@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('bg.jpg');
+    font-family: cursive;
+    margin: 100px;
+    background-repeat: repeat;
+    background-size:cover;
+    background-position:  center;              
+    color:rgb(186, 221, 29);
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+header{
+    display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+
+li {
+    list-style-type: none;
+    border: 3px solid firebrick;
+    padding: 5px;
+    margin: 5px;
+}
+
+#input {
+    width: 50%;
+    max-width: 100%;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background-color: rgb(225, 222, 65);
+    color: royalblue;
+    border-radius: 16px 0px 16px 0px;
+    border-bottom: 3px solid red;
+    font-size: 20px;
+    font-weight: 300;
+    transition: 0.2s ease-out;
+
+}
+#numberOfGif{
+    width: 100px;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background-color: rgb(225, 222, 65);
+    color: royalblue;
+    border-radius: 16px 0px 16px 0px;
+    border-bottom: 3px solid red;
+    font-weight: 300;
+
+}
+button {
+    border-radius: 50px;
+    height: 70px;
+    width: 100px;
+    background-color: greenyellow;
+    color: royalblue;
+}
