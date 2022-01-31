@@ -16,14 +16,25 @@ const main = document.querySelector('main')
 const ul = document.createElement('ul')
 main.appendChild(ul)
 
+
+
+button.addEventListener('click', async () => {
+    try {
+        await getGif()
+        await sendData()
+    } catch (err) { throw err }
+
+})
+
 // get data from json link 
 
 const getGif = async function () {
     try {
-        const response = await fetch(`http://api.giphy.com/v1/gifs/search?q=${input.value}&api_key=${gifApi}&limit=${numberOfGif.value}`)
+        const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${gifApi}&q=${input.value}&limit=${numberOfGif.value}&offset=0&rating=g&lang=en`)
         const data = await response.json()
-        sendData(data)
         console.log(data);
+
+      return  sendData(data)
     } catch (err) { throw err }
 }
 
@@ -42,11 +53,3 @@ const sendData = async function (gif) {
         a.target = "_blank"
     })
 }
-
-button.addEventListener('click', async () => {
-    try {
-        await getGif()
-        await sendData()
-    } catch (err) { throw err }
-
-})
