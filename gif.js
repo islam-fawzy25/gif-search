@@ -50,5 +50,5 @@ const sendData = async function (gif) {
 }
 
 button.addEventListener('click', () => {  
-        await sendData()
+         sendData()
 })
